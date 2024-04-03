@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Course} from "../../models/course";
 
 @Component({
   selector: 'app-course',
@@ -9,15 +10,16 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CourseComponent implements OnInit{
 
-  @Input()
-  title: string | undefined;
+  @Input({
+    required: true
+  })
+  course!: Course;
 
   constructor() {
-
   }
 
   ngOnInit() {
-    console.log(this.title);
+
   }
 
 }
