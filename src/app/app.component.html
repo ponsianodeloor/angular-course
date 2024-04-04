@@ -6,7 +6,7 @@
   {{ coreCourse.description }}
 </h1>
 <div class="courses">
-  <app-course [course]="coreCourse"></app-course>
+  <app-course (courseSelected)="onCourseSelected($event)" [course]="coreCourse"></app-course>
   <app-course [course]="rxjsCourse"></app-course>
   <app-course [course]="ngrxCourse"></app-course>
 </div>
