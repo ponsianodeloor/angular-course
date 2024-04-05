@@ -6,11 +6,24 @@
   {{ coreCourse.description }}
 </h1>
 <div class="courses">
-  <app-course (courseSelected)="onCourseSelected($event)" [course]="coreCourse"></app-course>
-  <app-course [course]="rxjsCourse"></app-course>
-  <app-course [course]="ngrxCourse"></app-course>
 
-  @for (course of courses; track course.id){
-    <app-course (courseSelected)="onCourseSelected($event)" [course]="course"></app-course>
+
+  @for (course of courses; track course.id;
+    let index = $index; let count = $count; let first = $first; let last = $last; let even = $even; let odd = $odd;){
+    <course-card
+      [course]="course"
+      [cardIndex]="index"
+      [class.is-first]="first"
+      [class.is-last]="last"
+      [class.is-even]="even"
+      [class.is-odd]="odd"
+      (courseSelected)="onCourseSelected($event)"
+    >
+
+    </course-card>
+  } @empty {
+    <div class="no-courses">
+      No courses available
+    </div>
   }
 </div>

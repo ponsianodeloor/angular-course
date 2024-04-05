@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Course} from "../../models/course";
 
 @Component({
-  selector: 'app-course',
+  selector: 'course-card',
   standalone: true,
   imports: [],
   templateUrl: './course.component.html',
@@ -14,6 +14,9 @@ export class CourseComponent implements OnInit{
     required: true
   })
   course!: Course;
+
+  @Input({required: true})
+  cardIndex!: number;
 
   //@Output()
   @Output('courseSelected')
