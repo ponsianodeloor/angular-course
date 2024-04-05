@@ -9,4 +9,8 @@
   <app-course (courseSelected)="onCourseSelected($event)" [course]="coreCourse"></app-course>
   <app-course [course]="rxjsCourse"></app-course>
   <app-course [course]="ngrxCourse"></app-course>
+
+  @for (course of courses; track course.id){
+    <app-course (courseSelected)="onCourseSelected($event)" [course]="course"></app-course>
+  }
 </div>
